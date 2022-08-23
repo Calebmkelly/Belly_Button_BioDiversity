@@ -90,11 +90,18 @@ function buildCharts(sample) {
       y: ylabels,
       text: yhoverLabels,
       type: "bar",
-      orientation: "h"
+      orientation: "h",
+      marker: {
+        color: ['#0d0887', '#46039f', '#7201a8', '#9c179e', '#bd3786', '#d8576b', '#ed7953', '#fb9f3a', '#fdca26', '#f0f921']
+      }
     }];
+
     // 9. Create the layout for the bar chart. 
     var barLayout = {
       title: "Top 10 Bacteria Cultures Found",
+      width: 600, 
+      height: 430, 
+      margin: { t: 40, b: 40 },
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
@@ -109,8 +116,7 @@ function buildCharts(sample) {
       mode: "markers",
       marker: {
         size: values,
-        color: ids,
-        colorscale: "Earth"
+        color: ['#0d0887', '#46039f', '#7201a8', '#9c179e', '#bd3786', '#d8576b', '#ed7953', '#fb9f3a', '#fdca26', '#f0f921']
       },
     }];
 
@@ -119,6 +125,9 @@ function buildCharts(sample) {
       title: "Bacteria Cultures Per Sample",
       xaxis: {title: `OTU_ID: ${sample}`},
       hovermode: true,
+      width: 1200, 
+      height: 400, 
+      margin: { t: 40, b: 40 } 
     };
 
     // 3. Use Plotly to plot the data with the layout.
@@ -141,17 +150,17 @@ function buildCharts(sample) {
         axis: { range: [null, 10], tickmode: Array, tickvals: [0,2,4,6,8,10]},
         bar: { color: "black" },
         steps: [
-          { range: [0, 2], color: "red" },
-          { range: [2, 4], color: "orange" },
-          { range: [4, 6], color: "yellow" },
-          { range: [6, 8], color: "lime" },
-          { range: [8, 10], color: "green" },
+          { range: [0, 2], color: "#0d0887" },
+          { range: [2, 4], color: "#9c179e" },
+          { range: [4, 6], color: "#d8576b" },
+          { range: [6, 8], color: "#fb9f3a" },
+          { range: [8, 10], color: "#f0f921" },
         ]},
     }];
     
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
-      width: 600, 
+      width: 500, 
       height: 500, 
       margin: { t: 0, b: 0 } 
   };
